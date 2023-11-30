@@ -1,6 +1,11 @@
 import { createApp } from 'vue'
+import intersection from "@/directives/VIntersection"
 import App from './App.vue'
-import router from './router'
 import store from './store'
+import router from '@/router/router'
 
-createApp(App).use(store).use(router).mount('#app')
+const app = createApp(App)
+
+app.directive(intersection.name, intersection)
+
+app.use(router).use(store).mount('#app')
